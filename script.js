@@ -14,7 +14,7 @@ function firstNonRepeatedChar(str) {
 		return null;
 	  }
 	  else{
-		return l;
+		return JSON.stringify(l);
 	  }
 }
 const input = prompt("Enter a string");
