@@ -1,21 +1,30 @@
 function firstNonRepeatedChar(str) {
- // Write your code here
-	let l=str.split("");
-	   for(let i=0;i<l.length;){
-		   if(l[i]===l[i+1]){
-			  l.splice(i,2);
-		   }
-		   else{
-			   i++;
-		   }
-	   }
-	   console.log(l);
-	  if(str.length==0||l.length==0){
+ // Write your code her
+	if(str.length==0){
 		return null;
 	  }
-	  else{
-		return l.join("");
+   let c=0,m="";
+	   for(let i=0;i<str.length-1;i++){
+		   for(let j=0;j<str.length;j++){
+			   if(i==j) continue;
+			   if(str.charAt(i)==str.charAt(j)){
+				   c=0;
+				   break;
+			   }
+			   else{
+				   c++;
+			   }
+		   }
+		   if(c>0){
+               m+=str.charAt(i);
+			   return m;
+		   }
+		}
+		if(c==0){
+		return null;
 	  }
 }
+
 const input = prompt("Enter a string");
 alert(firstNonRepeatedChar(input)); 
+
